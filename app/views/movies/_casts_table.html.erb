@@ -1,0 +1,28 @@
+<table class="table table-striped">
+  <thead>
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movie.casts.each do |cast| %>
+
+          <%= content_tag_for(:tr, cast) do %>
+            
+            <td class="col-md-5">
+              <%= cast.person_id %>
+            </td>
+            <td class="col-md-5">
+              <%= cast.role %>
+            </td>
+            <td class="col-md-1"><%= link_to 'Edit', edit_person_path(cast), class: "btn btn-small btn-info sm-width" %>
+            </td>
+            
+          <% end %>
+          
+      <% end %>
+  </tbody>
+<table>

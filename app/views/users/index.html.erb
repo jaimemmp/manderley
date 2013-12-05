@@ -1,0 +1,48 @@
+<h1>Listing users</h1>
+
+<table class="table"> <!-- table-striped -->
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <style>.odd{background-color: #ddd;} .even{background-color: white;}</style>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr class="<%= cycle("odd", "even") -%>">
+        <td class="col-md-2"><%= user.email %></td>
+        <td class="col-md-1"></td>
+        <td class="col-md-2"></td>
+        <td class="col-md-1"></td>
+        <td class="col-md-1"></td>
+        <td class="col-md-1"></td>
+        <td class="col-md-1">
+          <% if user_signed_in? %>
+            <% if current_user.has_role? :admin %>
+              <%= link_to 'Edit', edit_user_path(user), class: "btn btn-small btn-info sm-width" %>
+            <% end %>
+          <% end %>
+        </td>
+        
+        <td class="col-md-1">
+              <%= link_to 'Show', user, class: "btn btn-small btn-info sm-width" %>
+        </td>
+        <td class="col-md-1">
+              <%#= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger sm-width" %>
+        </td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

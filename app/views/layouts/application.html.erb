@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manderley</title>
+  <script type="text/javascript"
+    src="http://maps.googleapis.com/maps/api/js?sensor=false">
+  </script>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <style type="text/css">
+    html { height: 100% }
+    body { height: 100%; margin: 0; padding: 0 }
+    #map_canvas { height: 400px; }
+  </style>
+  
+    
+</head>
+<body class="<%= controller.controller_name %> <%= controller.action_name %>">
+  
+  <!--<div id="map_canvas"> </div>
+  <script type="text/javascript">
+
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(40.412109, -3.693774),
+          zoom: 20,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"),
+            mapOptions);
+      }
+      initialize();
+
+  </script>-->
+
+
+        <% if user_signed_in? %>
+           <%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %>
+        <% else %>
+            <%= link_to 'Register', new_user_registration_path, class: "btn btn-small btn-info" %>
+            <%= link_to 'Login', new_user_session_path, class: "btn btn-small btn-info" %>
+        <% end %>
+<section class="col-md-10 col-md-offset-1">
+    <%= yield %>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Movie info: </h1>
+<p>
+  <strong>Title:</strong>
+  <%= @movie.title %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @movie.duration %>
+</p>
+
+<p>
+  <strong>Synopsis:</strong>
+  <%= @movie.synopsis %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @movie.year %>
+</p>
+
+<p>
+  <strong>Categories:</strong>
+  <%= @movie.categories %>
+</p>
+
+<%= link_to 'Edit', edit_movie_path(@movie), class: "btn btn-small btn-info" %>
+<%= link_to 'Back', movies_path, class: "btn btn-small btn-info" %>
+<!-- <p>
+  <h2>People:</h2>
+  
+  <<!--%= render 'people_table' %>
+
+<<!--%= link_to 'New person', new_person_path(@movie[:id]), class: "btn btn-small btn-success" %>
+
+</p> -->
+<p>
+  <h2>Casts:</h2>
+  
+  <%= render 'casts_table' %>
+
+<%= link_to 'New Cast', movie_new_cast_path(@movie), class: "btn btn-small btn-success" %>
+
+</p>
+<p>
+  <h2>Comments:</h2>
+  
+  <%= render 'comments_table' %>
+
+<%= link_to 'New Comment', new_movie_comment_path(@movie[:id]), class: "btn btn-small btn-success" %>
+
+</p>

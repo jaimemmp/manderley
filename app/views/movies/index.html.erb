@@ -1,0 +1,52 @@
+<%= t(:hello) %>
+
+<h1>Listing movies</h1>
+
+<%= link_to 'New Movie', new_movie_path, class: "btn btn-small btn-success" %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Duration</th>
+      <th>Synopsis</th>
+      <th>Year</th>
+      <th>Categories</th>
+      <th>Owner</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <style>.odd{background-color: #ddd;} .even{background-color: white;}</style>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr id="movie_<%= movie.id %>" class="movie">
+        <td class="col-md-2"><%= movie.title %></td>
+        <td class="col-md-1"><%= movie.duration %></td>
+        <td class="col-md-2"><%= movie.synopsis %></td>
+        <td class="col-md-1"><%= movie.year %></td>
+        <td class="col-md-1"><%= movie.categories %></td>
+        <td class="col-md-1"><%= movie.user.email%></td>
+        <td class="col-md-1"><%= link_to 'Show', movie, class: "btn btn-small btn-success sm-width" %></td>
+        
+        <td class="col-md-1">
+          <% if user_signed_in? %>
+            <%= link_to 'Edit', edit_movie_path(movie), class: "btn btn-small btn-info sm-width" %>
+              <% end %>
+          </td>
+        <td class="col-md-1">
+          <% if user_signed_in? %>
+            <% if current_user==movie.user %>
+              <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger sm-width", remote: true %>
+            <% end %>
+          <% end %>
+        </td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

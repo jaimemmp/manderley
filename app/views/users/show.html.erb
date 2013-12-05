@@ -1,0 +1,7 @@
+<%= @user.email %>
+<br>
+<%= @user.admin ? "Admin" : "Regular user" %>
+<br>
+
+<%= link_to 'Edit', edit_user_path(@user), class: "btn btn-small btn-info" %>
+<%= link_to 'Back', users_path, class: "btn btn-small btn-info" %>

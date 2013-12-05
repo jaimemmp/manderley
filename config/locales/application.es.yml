@@ -1,0 +1,6 @@
+es:
+    activerecord:
+        models:
+            movie:
+                one: "Pelicula"
+                other: "Peliculas"

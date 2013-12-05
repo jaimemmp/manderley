@@ -1,0 +1,8 @@
+<%= simple_form_for(@movie) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :duration %>
+  <%= f.input :synopsis %>
+  <%= f.input :year %>
+  <%= f.input :categories, collection: Movie::CATEGORIES, as: :check_boxes, label_method: lambda { |x| x.to_s.titleize} %>
+  <%= f.submit %>
+<% end %>
