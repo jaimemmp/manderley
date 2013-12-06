@@ -56,4 +56,5 @@ production:
   encoding: LATIN1
   database: manderley_production
   pool: 5
+  username: vagrant
   password:

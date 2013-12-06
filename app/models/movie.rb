@@ -48,6 +48,6 @@ class Movie < ActiveRecord::Base
   #   [slug]
   # end
 
-  
+  mount_uploader :photo, PhotoUploader
 
 end

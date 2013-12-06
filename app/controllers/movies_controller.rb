@@ -99,7 +99,8 @@ class MoviesController < ApplicationController
         :duration,
         :synopsis,
         :year,
-        {categories: []}
+        {categories: []},
+        :photo
       )
     end
 end
